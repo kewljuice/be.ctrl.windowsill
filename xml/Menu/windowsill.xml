@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<menu>
+  <item>
+    <path>civicrm/ctrl/windowsill</path>
+    <page_callback>CRM_windowsill_Page_windowsill</page_callback>
+    <title>windowsill</title>
+    <access_arguments>access CiviCRM</access_arguments>
+  </item>
+</menu>
