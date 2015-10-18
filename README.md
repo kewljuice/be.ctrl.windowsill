@@ -1,6 +1,6 @@
 # CiviCRM extension: WindowSill
 
-SuperStyler is a CiviCRM extension which let you manage views in CiviCRM. 
+WindowSill is a CiviCRM extension which let you use views in CiviCRM. 
 - [Installation](#installation)
 - [Configuration](#configuration)
 
