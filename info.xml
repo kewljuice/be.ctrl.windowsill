@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<extension key="be.ctrl.superstyler" type="module">
+<extension key="be.ctrl.windowsill" type="module">
   <file>windowsill</file>
   <name>CiviCRM Windowsill extension</name>
   <description>Windowsill: Manage views in CiviCRM</description>

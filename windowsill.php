@@ -122,15 +122,18 @@ function windowsill_civicrm_alterSettingsFolders(&$metaDataFolders = NULL) {
  */
 function windowsill_civicrm_buildForm($formName, &$form) {
 	// do something
-
+	
 }
 
 /**
  * pagerun
  */
 function windowsill_civicrm_pageRun( &$page ) {
-	// do something
-
+	// pageRun
+	if(get_class($page) == 'CRM_windowsill_Page_windowsill') {
+		// print
+		dpm("pageRun" . print_r($page,true));
+	}
 }
 
 
