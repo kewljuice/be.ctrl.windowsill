@@ -6,7 +6,7 @@ class CRM_windowsill_Page_windowsill extends CRM_Core_Page {
   function run() {
 		    
 		// title
-    CRM_Utils_System::setTitle(ts('WindowSill'));
+    	CRM_Utils_System::setTitle(ts('WindowSill'));
 		
 		// config
 		// https://github.com/kreynen/civicrm-min/blob/master/CRM/Core/Extensions.php
@@ -21,11 +21,12 @@ class CRM_windowsill_Page_windowsill extends CRM_Core_Page {
 		$url = CRM_Utils_System::url() . "civicrm/ctrl/windowsill";
 		$this->assign('url', $url);		
 	
-		// content
-		$form = "hello world";
-    $this->assign('content', $form);
+		// content, included from php file
+		include "php/views.php";
+		$form = "List:<br>".$list;
+    	$this->assign('content', $form);
 		
 		// render
-    parent::run();
+    	parent::run();
   }
 }

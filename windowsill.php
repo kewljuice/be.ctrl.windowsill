@@ -132,7 +132,8 @@ function windowsill_civicrm_pageRun( &$page ) {
 	// pageRun
 	if(get_class($page) == 'CRM_windowsill_Page_windowsill') {
 		// print
-		dpm("pageRun" . print_r($page,true));
+		// dpm("pageRun" . print_r($page,true));
+		
 	}
 }
 
