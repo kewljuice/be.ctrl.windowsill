@@ -49,7 +49,7 @@ function windowsill_civicrm_enable() {
 	// log
 	watchdog('be.ctrl.windowsill', 'enabled windowsill');	
 	// continue
-  _windowsill_civix_civicrm_enable();
+  	_windowsill_civix_civicrm_enable();
 }
 
 /**
@@ -60,7 +60,7 @@ function windowsill_civicrm_enable() {
 function windowsill_civicrm_disable() {
 	// log
 	watchdog('be.ctrl.windowsill', 'disabled windowsill');	
-  // continue
+  	// continue
 	_windowsill_civix_civicrm_disable();
 }
 
@@ -121,8 +121,7 @@ function windowsill_civicrm_alterSettingsFolders(&$metaDataFolders = NULL) {
  * buildform
  */
 function windowsill_civicrm_buildForm($formName, &$form) {
-	// do something
-	
+	// buildForm
 }
 
 /**
@@ -131,9 +130,13 @@ function windowsill_civicrm_buildForm($formName, &$form) {
 function windowsill_civicrm_pageRun( &$page ) {
 	// pageRun
 	if(get_class($page) == 'CRM_windowsill_Page_windowsill') {
-		// print
-		// dpm("pageRun" . print_r($page,true));
-		
+		dpm("include css & script");
+		// include css
+		// CRM_Core_Resources::singleton()->addStyleUrl('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css');
+		CRM_Core_Resources::singleton()->addStyleFile('be.ctrl.windowsill', 'css/style.css');
+		// include script
+		CRM_Core_Resources::singleton()->addScriptUrl('https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js', 10, 'page-header');
+		CRM_Core_Resources::singleton()->addScriptFile('be.ctrl.windowsill', 'js/script.js', 10, 'page-footer');
 	}
 }
 
