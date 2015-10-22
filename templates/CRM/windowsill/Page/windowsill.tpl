@@ -10,7 +10,7 @@
   		</tr>
   	</table>
 	<hr>
-    
+    <!-- http://stackoverflow.com/questions/12738012/smarty-php-clashing-with-angularjs -->
 	<div ng-app="angularjs-windowsill">
       <div ng-controller="mainCtrl">
           
