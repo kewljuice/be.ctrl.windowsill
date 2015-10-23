@@ -1,6 +1,7 @@
 <?php
 
 require_once 'windowsill.civix.php';
+require_once 'php/hooks.php';
 
 /**
  * Implementation of hook_civicrm_config

@@ -12,7 +12,7 @@
 		'use strict';
     $interpolateProvider.startSymbol('[[');
     $interpolateProvider.endSymbol(']]');
-  }]);
+  	}]);
 	
 	// custom directive
 	// ================
@@ -50,7 +50,7 @@
 		$http.post($url).success(function(data) {	console.log("loaded url"); $scope.views = data; });
 
 		// default
-		 $scope.choices = [{id:1,tab:true,token:true,"view":"threesign_view_purchase"},];
+		 $scope.choices = [{id:1,tab:true,token:true,view:'civicrm_member_matrix:page',name:'hello'},];
 		// {id:2,tab:true,token:true,"view":"twompact_view_mailing"}
 		
 		// add new
