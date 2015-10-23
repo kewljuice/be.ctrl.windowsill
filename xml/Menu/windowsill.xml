@@ -6,4 +6,9 @@
     <title>windowsill</title>
     <access_arguments>access CiviCRM</access_arguments>
   </item>
+  <item>
+    <path>civicrm/ctrl/windowsill/views</path>
+    <page_callback>CRM_windowsill_Page_windowsill_views</page_callback>
+    <access_arguments>access CiviCRM</access_arguments>
+  </item>  
 </menu>

@@ -130,7 +130,6 @@ function windowsill_civicrm_buildForm($formName, &$form) {
 function windowsill_civicrm_pageRun( &$page ) {
 	// pageRun
 	if(get_class($page) == 'CRM_windowsill_Page_windowsill') {
-		dpm("include css & script");
 		// include css
 		// CRM_Core_Resources::singleton()->addStyleUrl('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css');
 		CRM_Core_Resources::singleton()->addStyleFile('be.ctrl.windowsill', 'css/style.css');

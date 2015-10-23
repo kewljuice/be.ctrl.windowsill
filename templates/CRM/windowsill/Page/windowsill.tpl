@@ -1,26 +1,19 @@
 {* Display a variable directly *}
-<div class="crm-block crm-form-block">
+<div>
 	<h3>Windowsill ({$url})</h3>
 	{$error}
-	<table>
-  		<tr>
-    		<td>
-			{$content}
-  			</tr>
-  		</tr>
-  	</table>
 	<hr>
-    <!-- http://stackoverflow.com/questions/12738012/smarty-php-clashing-with-angularjs -->
+  <!-- http://stackoverflow.com/questions/12738012/smarty-php-clashing-with-angularjs -->
 	<div ng-app="angularjs-windowsill">
       <div ng-controller="mainCtrl">
           
       <h1>WindowSill: Settings</h1>
       
-      <!-- ALERT -->
+      <!-- EMPTY FIELDS -->
       <div class="alert alert-warning" role="alert" ng-show="!mainGroup.$valid">
         <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
         <span class="sr-only">Error:</span><span>Empty fields can't be submitted</span>
-          </div>
+      </div>
       
       <!-- DUPLICATE -->
       <div class="alert alert-danger" role="alert" ng-show="mainGroup.$error.duplicate">
@@ -33,29 +26,29 @@
         <div ng-repeat="choice in choices">
           <div class="form-group"> 
       
-            <div class="input-group" ng-class="{'has-error': mainGroup.n{{$index}}.$invalid || mainGroup.v{{$index}}.$invalid }">
+            <div class="input-group" ng-class="{literal}{'has-error': mainGroup.n[[$index]].$invalid || mainGroup.v[[$index]].$invalid }{/literal}">
               
-              <label for="n{{$index}}" class="input-group-addon">Name</label>
-              <input type="text" class="form-control" name="n{{$index}}" id="n{{$index}}" ng-model="choice.name" placeholder="name" checkunique required>
+              <label for="n[[$index]]" class="input-group-addon">Name</label>
+              <input type="text" class="form-control" name="n[[$index]]" id="n[[$index]]" ng-model="choice.name" placeholder="name" checkunique required>
       
-              <label for="v{{$index}}" class="input-group-addon">View</label>
-              <select class="form-control" name="v{{$index}}" id="v{{$index}}" ng-model="choice.view" required>
-                <option ng-repeat="view in views" value="{{view.id}}">{literal}{{view.name}}{/literal}</option>
+              <label for="v[[$index]]" class="input-group-addon">View</label>
+              <select class="form-control" name="v[[$index]]" id="v[[$index]]" ng-model="choice.view" required>
+                <option ng-repeat="view in views" value="[[view.id]]">[[view.name]]</option>
               </select>
             
               <span class="input-group-addon">
-                <input type="checkbox" class="" id="tab_{{$index}}" ng-model="choice.tab"> 
-                <label for="tab_{{$index}}" translate>Tab</label>
+                <input type="checkbox" class="" id="tab_[[$index]]" ng-model="choice.tab"> 
+                <label for="tab_[[$index]]" translate>Tab</label>
               </span>
               
               <span class="input-group-addon">
-                <input type="checkbox" class="" id="token_{{$index}}" ng-model="choice.token">
-                <label for="token_{{$index}}">Token</label>
+                <input type="checkbox" class="" id="token_[[$index]]" ng-model="choice.token">
+                <label for="token_[[$index]]">Token</label>
               </span>
               
             </div>
             
-            <span ng-show="mainGroup.n{{$index}}.$invalid && !mainGroup.n{{$index}}.$pristine" class="text-danger">
+            <span ng-show="mainGroup.n[[$index]].$invalid && !mainGroup.n[[$index]].$pristine" class="text-danger">
             Name is a required, unique field that can only contain [a_z,0-9] characters.</span>
         	
             <div ng-show="!$first && $last">
@@ -80,9 +73,7 @@
         Submit
       </button>
       
-      <pre>
-        {literal}{{choices}}{/literal}
-      </pre>  
+      <pre>[[choices]]</pre>  
       
       </div>
   </div>

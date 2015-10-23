@@ -21,11 +21,6 @@ class CRM_windowsill_Page_windowsill extends CRM_Core_Page {
 	$url = CRM_Utils_System::url() . "civicrm/ctrl/windowsill";
 	$this->assign('url', $url);		
 	
-	// content, included from php file
-	include "php/views.php";
-	$form = "List:<br><pre>$list</pre>";
-	$this->assign('content', $form);
-	
 	// render
 	parent::run();
   }
