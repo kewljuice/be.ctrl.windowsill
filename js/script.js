@@ -45,12 +45,16 @@
 	// ===========================
 	app.controller('mainCtrl', function($scope, $http, $location) {
 		'use strict';
+		// load from /views
+		var $url = $location.absUrl() + '/data';
 		// load views data
-		var $url = $location.absUrl() + '/views';
-		$http.post($url).success(function(data) {	console.log("loaded url"); $scope.views = data; });
-
-		// default
-		 $scope.choices = [{id:1,tab:true,token:true,view:'civicrm_member_matrix:page',name:'hello'},];
+		var $formData = { 'action' : 'views' };
+		$http({	method: "post", url: $url, data: $formData, }).success(function(data) {	$scope.views = data; });
+		// load settings data
+		var $formData = { 'action' : 'settings' };
+		$http({	method: "post", url: $url, data: $formData, }).success(function(data) {	$scope.choices = data; });
+		
+		// $scope.choices = [{id:1,tab:true,token:true,view:'civicrm_member_matrix:page',name:'hello'},];
 		// {id:2,tab:true,token:true,"view":"twompact_view_mailing"}
 		
 		// add new

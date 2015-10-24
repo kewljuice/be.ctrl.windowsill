@@ -7,8 +7,8 @@
     <access_arguments>access CiviCRM</access_arguments>
   </item>
   <item>
-    <path>civicrm/ctrl/windowsill/views</path>
-    <page_callback>CRM_windowsill_Page_windowsill_views</page_callback>
+    <path>civicrm/ctrl/windowsill/data</path>
+    <page_callback>CRM_windowsill_Page_windowsill_data</page_callback>
     <access_arguments>access CiviCRM</access_arguments>
   </item>  
 </menu>

@@ -49,6 +49,11 @@ function windowsill_civicrm_uninstall() {
 function windowsill_civicrm_enable() {
 	// log
 	watchdog('be.ctrl.windowsill', 'enabled windowsill');	
+	$settings = array();
+	$settings[] = array('id'=>1,'name'=>'','view'=>'','tab'=>TRUE,'token'=>TRUE);
+	$encode = json_encode($settings);
+	// assign 
+	CRM_Core_BAO_Setting::setItem($encode, 'windowsill', 'settings');
 	// continue
   	_windowsill_civix_civicrm_enable();
 }
@@ -61,6 +66,8 @@ function windowsill_civicrm_enable() {
 function windowsill_civicrm_disable() {
 	// log
 	watchdog('be.ctrl.windowsill', 'disabled windowsill');	
+	// assign 
+	CRM_Core_BAO_Setting::setItem('', 'windowsill', 'settings');
   	// continue
 	_windowsill_civix_civicrm_disable();
 }
