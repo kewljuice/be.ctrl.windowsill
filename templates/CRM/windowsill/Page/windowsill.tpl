@@ -58,10 +58,9 @@
             </div>
         
             <div ng-show="$last">
-              <br>
-              <button class="btn btn-block btn-info" ng-click="newChoice()">
-                Add <span class="glyphicon glyphicon-circle-arrow-down"></span>
-              </button>
+              <a ng-click="newChoice()" name="add" class="label label-default">
+                <span class="glyphicon glyphicon-circle-arrow-down">add</span>
+              </a>
             </div>
             
           </div>
