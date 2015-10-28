@@ -68,10 +68,11 @@
         </div>
       </div>
       
-      <!-- SUBMIT -->
-      <button class="btn btn-block btn-success" ng-click="saveChoices()" ng-show="mainGroup.$valid">
-        Submit
-      </button>
+      <!-- FORM SUBMIT -->
+      <form action="{$url}" method="post">
+      	<input type="hidden" name="settings" value="[[choices]]">
+        <div class="crm-submit-buttons" ng-show="mainGroup.$valid"><span class="crm-button"><input class="crm-form-submit default" type="submit" value="Submit"></span></div>
+      </form>
       
       <pre>[[choices]]</pre>  
       

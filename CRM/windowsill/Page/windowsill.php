@@ -17,6 +17,14 @@ class CRM_windowsill_Page_windowsill extends CRM_Core_Page {
 	// error
 	$this->assign('error', $error);		
 	
+	// on form action update settings
+	if(isset($_REQUEST['settings'])) {
+		// set
+		CRM_Core_BAO_Setting::setItem($_REQUEST['settings'], 'windowsill', 'settings');
+		// notice
+		CRM_Core_Session::setStatus(ts('Windowsill settings changed'), ts('Saved'), 'success');
+	}
+	
 	// url
 	$url = CRM_Utils_System::url() . "civicrm/ctrl/windowsill";
 	$this->assign('url', $url);		
