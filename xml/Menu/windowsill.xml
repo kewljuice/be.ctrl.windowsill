@@ -11,5 +11,10 @@
     <page_callback>CRM_windowsill_Page_windowsill_data</page_callback>
     <access_arguments>access CiviCRM</access_arguments>
   </item>  
+  <item>
+    <path>civicrm/ctrl/windowsill/render</path>
+    <page_callback>CRM_windowsill_Page_windowsill_render</page_callback>
+    <access_arguments>access CiviCRM</access_arguments>
+  </item> 	
 </menu>
 
