@@ -52,4 +52,20 @@ function windowsill_civicrm_navigationMenu(&$params) {
 	$params[$AdministerKey]['child'][$parentKey]['child'][$nextKey]  = $child;
 }
 
+function windowsill_civicrm_tabs( &$tabs, $contactID ) {
+	// Get settings from civicrm
+	$settings = CRM_Core_BAO_Setting::getItem('windowsill', 'settings');
+	$decode = json_decode(utf8_decode($settings), true);
+	// Loop settings		
+	$c = 300;
+	foreach ($decode as &$value) {
+		// Check if tab is configured
+		if($value['tab']) {
+			// Get view data if setting exists
+			$url = CRM_Utils_System::url('civicrm/ctrl/windowsill/render',"reset=1&cid=$contactID&name=".$value['name']);
+			$tabs[] = array('id' => str_replace(' ','_',$value['name']), 'url' => $url, 'title' => $value['name'], 'weight' => $c++);
+		}
+	}
+}
+
 ?>
