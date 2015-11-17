@@ -29,7 +29,7 @@
             <div class="input-group" ng-class="{literal}{'has-error': mainGroup.n[[$index]].$invalid || mainGroup.v[[$index]].$invalid }{/literal}">
               
               <label for="n[[$index]]" class="input-group-addon">Name</label>
-              <input type="text" class="form-control" name="n[[$index]]" id="n[[$index]]" ng-model="choice.name" placeholder="name" checkunique required>
+              <input type="text" class="form-control" name="n[[$index]]" id="n[[$index]]" ng-model="choice.name" ng-pattern="/^[a-zA-Z0-9 ]*$/" placeholder="name" checkunique required>
       
               <label for="v[[$index]]" class="input-group-addon">View</label>
               <select class="form-control" name="v[[$index]]" id="v[[$index]]" ng-model="choice.view" required>
@@ -49,7 +49,7 @@
             </div>
             
             <span ng-show="mainGroup.n[[$index]].$invalid && !mainGroup.n[[$index]].$pristine" class="text-danger">
-            Name is a required, unique field that can only contain [a_z,0-9] characters.</span>
+            Name is a required, unique field that can only contain [a-z],[A-Z],[0-9] & space characters.</span>
         	
             <div ng-show="!$first && $last">
               <a ng-click="removeChoice($index)" name="remove" class="label label-danger">
