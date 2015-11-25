@@ -47,15 +47,21 @@ function windowsill_civicrm_uninstall() {
  * @link http://wiki.civicrm.org/confluence/display/CRMDOC/hook_civicrm_enable
  */
 function windowsill_civicrm_enable() {
-	// log
-	watchdog('be.ctrl.windowsill', 'enabled windowsill');	
-	$settings = array();
-	$settings[] = array('id'=>1,'name'=>'','view'=>'','tab'=>TRUE,'token'=>TRUE);
-	$encode = json_encode($settings);
-	// assign 
-	CRM_Core_BAO_Setting::setItem($encode, 'windowsill', 'settings');
-	// continue
-  	_windowsill_civix_civicrm_enable();
+  // log
+  watchdog('be.ctrl.windowsill', 'enabled windowsill');
+  $settings = array();
+  $settings[] = array(
+    'id' => 1,
+    'name' => '',
+    'view' => '',
+    'tab' => TRUE,
+    'token' => TRUE
+  );
+  $encode = json_encode($settings);
+  // assign
+  CRM_Core_BAO_Setting::setItem($encode, 'windowsill', 'settings');
+  // continue
+  _windowsill_civix_civicrm_enable();
 }
 
 /**
@@ -64,12 +70,12 @@ function windowsill_civicrm_enable() {
  * @link http://wiki.civicrm.org/confluence/display/CRMDOC/hook_civicrm_disable
  */
 function windowsill_civicrm_disable() {
-	// log
-	watchdog('be.ctrl.windowsill', 'disabled windowsill');	
-	// assign 
-	CRM_Core_BAO_Setting::setItem('', 'windowsill', 'settings');
-  	// continue
-	_windowsill_civix_civicrm_disable();
+  // log
+  watchdog('be.ctrl.windowsill', 'disabled windowsill');
+  // assign
+  CRM_Core_BAO_Setting::setItem('', 'windowsill', 'settings');
+  // continue
+  _windowsill_civix_civicrm_disable();
 }
 
 /**
@@ -129,22 +135,25 @@ function windowsill_civicrm_alterSettingsFolders(&$metaDataFolders = NULL) {
  * buildform
  */
 function windowsill_civicrm_buildForm($formName, &$form) {
-	// buildForm
+  // buildForm
 }
 
 /**
  * pagerun
  */
-function windowsill_civicrm_pageRun( &$page ) {
-	// pageRun
-	if(get_class($page) == 'CRM_windowsill_Page_windowsill') {
-		// include css
-		// CRM_Core_Resources::singleton()->addStyleUrl('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css');
-		CRM_Core_Resources::singleton()->addStyleFile('be.ctrl.windowsill', 'css/style.css');
-		// include script
-		CRM_Core_Resources::singleton()->addScriptUrl('https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js', 10, 'page-header');
-		CRM_Core_Resources::singleton()->addScriptFile('be.ctrl.windowsill', 'js/script.js', 10, 'page-footer');
-	}
+function windowsill_civicrm_pageRun(&$page) {
+  // pageRun
+  if (get_class($page) == 'CRM_windowsill_Page_windowsill') {
+    // include css
+    // CRM_Core_Resources::singleton()->addStyleUrl('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css');
+    CRM_Core_Resources::singleton()
+      ->addStyleFile('be.ctrl.windowsill', 'css/style.css');
+    // include script
+    CRM_Core_Resources::singleton()
+      ->addScriptUrl('https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js', 10, 'page-header');
+    CRM_Core_Resources::singleton()
+      ->addScriptFile('be.ctrl.windowsill', 'js/script.js', 10, 'page-footer');
+  }
 }
 
 
