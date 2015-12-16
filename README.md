@@ -25,6 +25,16 @@ WindowSill is a CiviCRM extension which let you use views in CiviCRM.
 
 ## Configuration
 
-- TODO
+- To implement a 'Drupal view' as a 'CiviCRM token' or 'CiviCRM contact tab' go to ```"Administer -> CTRL -> Windowsill"``` or **yoursite.org/civicrm/ctrl/windowsill**. 
+
+- To define a new 'windowsill': 
+ * enter a name (for your own reference) 
+ * select a 'Drupal view'  from the list
+ * check 'tab' if you want the 'Drupal view' visible as a 'CiviCRM contact tab'
+ * check 'token' if you want to use the 'Drupal view' as a 'CiviCRM token'
+ 
+- Press 'Add' to define a extra 'windowsill'.
+
+- Press 'Submit' to save your changes.
 
 ***
