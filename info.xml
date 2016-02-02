@@ -24,6 +24,6 @@
   </compatibility>
   <comments></comments>
   <civix>
-    <namespace>CRM/windowsill</namespace>
+    <namespace>CRM/ctrl/windowsill</namespace>
   </civix>
 </extension>
