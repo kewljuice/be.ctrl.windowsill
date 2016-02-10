@@ -1,26 +1,33 @@
 <?php
-
 /**
- * implementation of CiviCRM navigationMenu hook.
+ * CiviCRM hooks
  */
 function windowsill_civicrm_navigationMenu(&$params) {
-  //  Get the maximum key of $params.
-  $nextKey = (max(array_keys($params)));
+
+  // Get the maximum key of $params.
+  $NextKey = (max(array_keys($params)));
+  // Get Next available item.
+  $NextKey++;
+
   // Check for Administer navID.
+  $AdministerKey = 0;
   foreach ($params as $k => $v) {
     if ($v['attributes']['name'] == 'Administer') {
       $AdministerKey = $k;
     }
   }
+
   // Check for Parent navID.
+  $ParentKey = 0;
   foreach ($params[$AdministerKey]['child'] as $k => $v) {
     if ($v['attributes']['name'] == 'CTRL') {
-      $parentKey = $v['attributes']['navID'];
+      $ParentKey = $v['attributes']['navID'];
     }
   }
+
   // If Parent navID doesn't exist create.
-  if (!isset($parentKey)) {
-    // Create parent array
+  if ($ParentKey == 0) {
+    // Create parent array.
     $parent = array(
       'attributes' => array(
         'label' => 'CTRL',
@@ -30,16 +37,17 @@ function windowsill_civicrm_navigationMenu(&$params) {
         'operator' => NULL,
         'separator' => 0,
         'parentID' => $AdministerKey,
-        'navID' => $nextKey,
+        'navID' => $NextKey,
         'active' => 1
       ),
       'child' => NULL
     );
-    // Add parent to Administer
-    $params[$AdministerKey]['child'][$nextKey] = $parent;
-    $parentKey = $nextKey;
-    $nextKey++;
+    // Add parent to Administer.
+    $params[$AdministerKey]['child'][$NextKey] = $parent;
+    // Define parentKey & nextKey.
+    $ParentKey = $NextKey;
   }
+
   // Create child(s) array
   $child = array(
     'attributes' => array(
@@ -55,8 +63,9 @@ function windowsill_civicrm_navigationMenu(&$params) {
     ),
     'child' => NULL
   );
-  // Add child(s) for this extension
-  $params[$AdministerKey]['child'][$parentKey]['child'][$nextKey] = $child;
+
+  // Add child(s) for this extension.
+  $params[$AdministerKey]['child'][$ParentKey]['child']['ctrl_windowsill'] = $child;
 }
 
 /**
